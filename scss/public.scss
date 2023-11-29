@@ -678,9 +678,9 @@ nav {
     z-index: 3;
 
     li {
-      display: inline-block;
-      top: 30px;
-      line-height: 40px;
+		position: relative;
+      	display: inline-block;
+		line-height: 40px;
 
       @include range-width(0, 450px) {
         display: inline-block;
@@ -707,17 +707,33 @@ nav {
   }
 
   ul {
+    position: relative;
+
     ul {
       display: none;
       position: absolute;
-      top: 10px;
+      top: 40px;
 
       @include range-width(0, 450px) {
         position: inherit;
         width: 100%;
         top: 0;
       }
+
+	  ul {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		
+		@include range-width(0, 450px) {
+			position: inherit;
+			width: 100%;
+			top: 0;
+		}
+	  }
     }
+    
 
     li:hover > ul {
       display: inherit;
@@ -742,16 +758,12 @@ nav {
             color: white !important;
           }
         }
-      }
 
-      ul li {
-        position: relative;
-        top: -60px;
-        left: 170px;
-        @include range-width(0, 450px) {
-          top: 0;
-          left: 0;
-        }
+		ul {
+			li {
+				position: relative;
+			  }
+		  }
       }
     }
   }
